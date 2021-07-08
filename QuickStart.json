@@ -101,17 +101,45 @@
       "metadata": {
         "description": "Name of the virtual machine."
       }
-    }
+    },
+    "nicname": {
+      "type": "string",
+      "defaultValue": "myVMNic",
+      "metadata": {
+        "description": "Name of the VM NIC."
+      }
+    },
+    "vnetname": {
+      "type": "string",
+      "defaultValue": "MyVNET",
+      "metadata": {
+        "description": "Name of the virtual network."
+      }
+    },
+    "subnetname": {
+      "type": "string",
+      "defaultValue": "MySubnet",
+      "metadata": {
+        "description": "Name of the subnet."
+      }
+     },
+    "nsgname": {
+      "type": "string",
+      "defaultValue": "default-NSG",
+      "metadata": {
+        "description": "Name of the NSG."
+      }
+   }
   },
   "functions": [],
   "variables": {
     "storageAccountName": "[format('bootdiags{0}', uniqueString(resourceGroup().id))]",
-    "nicName": "myVMNic",
+    "nicName": "[parameters('nicname')]",
     "addressPrefix": "10.0.0.0/16",
-    "subnetName": "Subnet",
+    "subnetName": "[parameters('subnetname')]",
     "subnetPrefix": "10.0.0.0/24",
-    "virtualNetworkName": "MyVNET",
-    "networkSecurityGroupName": "default-NSG"
+    "virtualNetworkName": "[parameters('vnetname')]",
+    "networkSecurityGroupName": "[parameters('nsgname')]"
   },
   "resources": [
     {
