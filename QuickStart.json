@@ -11,6 +11,7 @@
   "parameters": {
     "adminUsername": {
       "type": "string",
+      "defaultValue": "quark",
       "metadata": {
         "description": "Username for the Virtual Machine."
       }
